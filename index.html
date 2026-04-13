@@ -684,6 +684,79 @@
       .replace(/"/g, "&quot;");
   }
 
+  var audioCtx = null;
+
+  function getAudioContext() {
+    if (!audioCtx) {
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+      if (typeof audioCtx.resume === "function") {
+        audioCtx.resume();
+      }
+    }
+    return audioCtx;
+  }
+
+  function playChokeSound() {
+    var ctx = getAudioContext();
+    var now = ctx.currentTime;
+
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(220, now);
+    osc.frequency.exponentialRampToValueAtTime(90, now + 0.18);
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.exponentialRampToValueAtTime(0.16, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.4);
+
+    var noise = ctx.createBufferSource();
+    var buffer = ctx.createBuffer(1, ctx.sampleRate * 0.12, ctx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < data.length; i++) {
+      data[i] = (Math.random() * 2 - 1) * 0.35;
+    }
+    noise.buffer = buffer;
+    var noiseGain = ctx.createGain();
+    noiseGain.gain.setValueAtTime(0.001, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.08, now + 0.01);
+    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+    noise.connect(noiseGain).connect(ctx.destination);
+    noise.start(now);
+    noise.stop(now + 0.12);
+  }
+
+  function playDeathSound() {
+    var ctx = getAudioContext();
+    var now = ctx.currentTime;
+
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(150, now);
+    osc.frequency.exponentialRampToValueAtTime(38, now + 0.8);
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.linearRampToValueAtTime(0.22, now + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 1.1);
+
+    var sub = ctx.createOscillator();
+    var subGain = ctx.createGain();
+    sub.type = "square";
+    sub.frequency.setValueAtTime(72, now);
+    subGain.gain.setValueAtTime(0.001, now);
+    subGain.gain.linearRampToValueAtTime(0.06, now + 0.05);
+    subGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
+    sub.connect(subGain).connect(ctx.destination);
+    sub.start(now);
+    sub.stop(now + 1.1);
+  }
+
   function normalizarNombre(raw, defecto) {
     var t = String(raw || "").trim();
     if (!t) {
@@ -1086,6 +1159,7 @@
           puntosJ1[f][c] = false;
           if (venenoJ1[f][c]) {
             vidasJ1--;
+            playChokeSound();
             mensaje(
               "☠️ ¡Te envenenaste! Pierdes 1 vida. Te quedan " + vidasJ1 + "."
             );
@@ -1133,6 +1207,7 @@
           puntosJ2[f][c] = false;
           if (venenoJ2[f][c]) {
             vidasJ2--;
+            playChokeSound();
             mensaje(
               "☠️ ¡Te envenenaste! Pierdes 1 vida. Te quedan " + vidasJ2 + "."
             );
@@ -1159,6 +1234,9 @@
   function finPartida() {
     elContainer.innerHTML = "";
     mensaje("");
+    if (vidasJ1 <= 0 || vidasJ2 <= 0) {
+      playDeathSound();
+    }
     if (vidasJ1 <= 0) {
       elFin.textContent =
         nombreJ1 + " se quedó sin vidas. ¡Gana " + nombreJ2 + "!";
