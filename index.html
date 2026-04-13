@@ -259,6 +259,13 @@
       box-shadow: 0 2px 0 #d1d5db;
     }
 
+    table.tablero td.is-veneno-borrado {
+      background: linear-gradient(145deg, #fca5a5, #ef4444);
+      border-color: #b91c1c;
+      color: #fff;
+      font-weight: 700;
+    }
+
     table.tablero.modo-final td {
       font-size: 1.35rem;
     }
@@ -876,10 +883,17 @@
             td.classList.add("is-poison");
           }
         } else if (modo === "play") {
-          td.textContent = puntos[i][j] ? "●" : "";
+          if (puntos[i][j]) {
+            td.textContent = "●";
+          } else if (veneno[i][j]) {
+            td.textContent = "x";
+            td.classList.add("is-veneno-borrado");
+          } else {
+            td.textContent = "";
+            td.classList.add("is-empty-cell");
+          }
           if (!puntos[i][j]) {
             td.classList.add("disabled");
-            td.classList.add("is-empty-cell");
             disabled = true;
           }
         } else {
