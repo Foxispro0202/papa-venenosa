@@ -950,14 +950,14 @@
         td.dataset.col = String(j);
         var disabled = false;
         if (modo === "setup") {
-          td.textContent = veneno[i][j] ? "☠" : "●";
+          td.textContent = veneno[i][j] ? "☠" : "🍟";
           if (veneno[i][j]) {
             td.classList.add("disabled");
             td.classList.add("is-poison");
           }
         } else if (modo === "play") {
           if (puntos[i][j]) {
-            td.textContent = "●";
+            td.textContent = "🍟";
           } else if (veneno[i][j]) {
             td.textContent = "x";
             td.classList.add("is-veneno-borrado");
@@ -971,7 +971,7 @@
           }
         } else {
           if (puntos[i][j]) {
-            td.textContent = veneno[i][j] ? "V" : "●";
+            td.textContent = veneno[i][j] ? "V" : "🍟";
             if (veneno[i][j]) td.classList.add("is-poison-final");
           } else {
             td.textContent = veneno[i][j] ? "x" : "";
@@ -1145,7 +1145,7 @@
         " ---</strong> (vidas: " +
         vidasJ1 +
         ")";
-      mensaje("Toca un ● en tu tablero para borrarlo.");
+      mensaje("Toca una 🍟 en tu tablero para borrarlo.");
       renderGrid({
         puntos: puntosJ1,
         veneno: venenoJ1,
@@ -1193,7 +1193,7 @@
         " ---</strong> (vidas: " +
         vidasJ2 +
         ")";
-      mensaje("Toca un ● en tu tablero para borrarlo.");
+      mensaje("Toca una 🍟 en tu tablero para borrarlo.");
       renderGrid({
         puntos: puntosJ2,
         veneno: venenoJ2,
@@ -1299,7 +1299,7 @@
         td.classList.add("disabled");
         if (modo === "final") {
           if (puntos[i][j]) {
-            td.textContent = veneno[i][j] ? "V" : "●";
+            td.textContent = veneno[i][j] ? "V" : "🍟";
             if (veneno[i][j]) td.classList.add("is-poison-final");
           } else {
             td.textContent = veneno[i][j] ? "x" : "";
