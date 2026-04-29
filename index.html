@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>🎲 Puntos y veneno — juego online</title>
+  <title>🎲 Puntos y veneno — juego</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -259,13 +259,6 @@
       box-shadow: 0 2px 0 #d1d5db;
     }
 
-    table.tablero td.is-veneno-borrado {
-      background: linear-gradient(145deg, #fca5a5, #ef4444);
-      border-color: #b91c1c;
-      color: #fff;
-      font-weight: 700;
-    }
-
     table.tablero.modo-final td {
       font-size: 1.35rem;
     }
@@ -473,202 +466,6 @@
       box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.35);
     }
 
-    .bloque-modo {
-      position: relative;
-      z-index: 1;
-      margin-top: 0.5rem;
-    }
-
-    .titulo-modo {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #5b21b6;
-      text-align: center;
-      margin: 0 0 1rem;
-    }
-
-    .modo-opciones {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .btn-modo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      border: 3px solid #ddd6fe;
-      border-radius: 0.85rem;
-      background: linear-gradient(135deg, #fef9c3 0%, #fde68a 100%);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      text-align: left;
-    }
-
-    .btn-modo:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
-      border-color: #a78bfa;
-    }
-
-    .modo-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .modo-titulo {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #5b21b6;
-      margin-bottom: 0.25rem;
-    }
-
-    .modo-desc {
-      font-size: 0.85rem;
-      color: #6d28d9;
-      line-height: 1.3;
-    }
-
-    .bloque-online {
-      position: relative;
-      z-index: 1;
-      margin-top: 0.5rem;
-    }
-
-    .online-section {
-      margin-bottom: 1.5rem;
-    }
-
-    .titulo-online {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #5b21b6;
-      text-align: center;
-      margin: 0 0 1rem;
-    }
-
-    .btn-crear-sala, .btn-unirse-sala {
-      width: 100%;
-      margin-top: 0.35rem;
-      padding: 0.9rem 1rem;
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      border-radius: 999px;
-      color: #fff;
-      background: linear-gradient(180deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%);
-      box-shadow: 0 6px 0 #5b21b6, 0 8px 16px rgba(91, 33, 182, 0.35);
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-
-    .btn-crear-sala:active, .btn-unirse-sala:active {
-      transform: translateY(2px);
-      box-shadow: 0 3px 0 #5b21b6;
-    }
-
-    .online-info {
-      font-size: 0.85rem;
-      color: #6d28d9;
-      text-align: center;
-      margin: 0.75rem 0 0;
-      padding: 0.5rem;
-      background: rgba(167, 139, 250, 0.1);
-      border-radius: 0.5rem;
-      border: 1px solid rgba(167, 139, 250, 0.3);
-    }
-
-    .online-toggle {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .btn-toggle {
-      background: none;
-      border: none;
-      color: #7c3aed;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: underline;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-      transition: background-color 0.15s ease;
-    }
-
-    .btn-toggle:hover {
-      background: rgba(167, 139, 250, 0.1);
-    }
-
-    .bloque-esperando {
-      position: relative;
-      z-index: 1;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    .esperando-content {
-      padding: 2rem 1rem;
-    }
-
-    .esperando-spinner {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    #esperandoTitulo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #5b21b6;
-      margin: 0 0 1rem;
-    }
-
-    #esperandoMensaje {
-      font-size: 0.95rem;
-      color: #6d28d9;
-      line-height: 1.5;
-      margin: 0 0 1.5rem;
-    }
-
-    #codigoSala {
-      font-family: monospace;
-      background: rgba(167, 139, 250, 0.1);
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      border: 1px solid rgba(167, 139, 250, 0.3);
-    }
-
-    .btn-cancelar {
-      padding: 0.75rem 1.5rem;
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: 2px solid #ef4444;
-      border-radius: 999px;
-      color: #dc2626;
-      background: #fef2f2;
-      transition: all 0.15s ease;
-    }
-
-    .btn-cancelar:hover {
-      background: #fee2e2;
-      transform: translateY(-1px);
-    }
-
-    .bloque-online .online-section.oculto {
-      display: none;
-    }
-
     .btn-empezar-partida {
       width: 100%;
       margin-top: 0.35rem;
@@ -813,7 +610,6 @@
       }
     }
   </style>
-  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
   <div class="app">
@@ -823,26 +619,10 @@
         <h1>Puntos y veneno</h1>
         <p class="sub">
           ¡Dos tableros de puntos! Toca las casillas (fila y columna del 1 al 3).<br />
-          Esquina arriba-izquierda = <strong>1, 1</strong>.<br />
-          <strong>Modo online disponible</strong> — juega con amigos en diferentes dispositivos.
+          Esquina arriba-izquierda = <strong>1, 1</strong>.
         </p>
       </div>
-      <div id="bloqueModo" class="bloque-modo">
-        <p class="titulo-modo">¿Cómo quieres jugar?</p>
-        <div class="modo-opciones">
-          <button type="button" id="btnModoLocal" class="btn-modo">
-            <span class="modo-icon">🏠</span>
-            <span class="modo-titulo">Juego Local</span>
-            <span class="modo-desc">Dos jugadores en el mismo dispositivo</span>
-          </button>
-          <button type="button" id="btnModoOnline" class="btn-modo">
-            <span class="modo-icon">🌐</span>
-            <span class="modo-titulo">Juego Online</span>
-            <span class="modo-desc">Juega con amigos online</span>
-          </button>
-        </div>
-      </div>
-      <div id="bloqueNombres" class="bloque-nombres oculto">
+      <div id="bloqueNombres" class="bloque-nombres">
         <p class="titulo-nombres">¿Cómo os llamáis? Escribid vuestros nombres:</p>
         <div class="campo-nombre">
           <label for="inputNombreJ1">Jugador 1</label>
@@ -855,48 +635,6 @@
         <button type="button" id="btnEmpezarPartida" class="btn-empezar-partida">
           ¡Empezar partida!
         </button>
-      </div>
-      <div id="bloqueOnline" class="bloque-online oculto">
-        <div id="onlineCrear" class="online-section">
-          <p class="titulo-online">Crear sala online</p>
-          <div class="campo-nombre">
-            <label for="inputNombreOnline">Tu nombre</label>
-            <input type="text" id="inputNombreOnline" maxlength="24" placeholder="Tu nombre" autocomplete="nickname" />
-          </div>
-          <button type="button" id="btnCrearSala" class="btn-crear-sala">
-            Crear sala
-          </button>
-          <p class="online-info">Comparte el nombre de tu sala con tu amigo para que se una</p>
-        </div>
-        <div id="onlineUnirse" class="online-section oculto">
-          <p class="titulo-online">Unirse a sala</p>
-          <div class="campo-nombre">
-            <label for="inputNombreUnirse">Tu nombre</label>
-            <input type="text" id="inputNombreUnirse" maxlength="24" placeholder="Tu nombre" autocomplete="nickname" />
-          </div>
-          <div class="campo-nombre">
-            <label for="inputSalaUnirse">Nombre de la sala</label>
-            <input type="text" id="inputSalaUnirse" maxlength="24" placeholder="Nombre de la sala" />
-          </div>
-          <button type="button" id="btnUnirseSala" class="btn-unirse-sala">
-            Unirse a sala
-          </button>
-        </div>
-        <div class="online-toggle">
-          <button type="button" id="btnToggleModo" class="btn-toggle">
-            ¿Quieres unirte a una sala existente?
-          </button>
-        </div>
-      </div>
-      <div id="bloqueEsperando" class="bloque-esperando oculto">
-        <div class="esperando-content">
-          <div class="esperando-spinner">⏳</div>
-          <h3 id="esperandoTitulo">Esperando oponente...</h3>
-          <p id="esperandoMensaje">Comparte este código con tu amigo: <strong id="codigoSala"></strong></p>
-          <button type="button" id="btnCancelarEspera" class="btn-cancelar">
-            Cancelar
-          </button>
-        </div>
       </div>
       <div id="bloqueJuego" class="oculto">
         <div id="vidas" class="vidas-bar" aria-live="polite"></div>
@@ -937,79 +675,6 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
-  }
-
-  var audioCtx = null;
-
-  function getAudioContext() {
-    if (!audioCtx) {
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new AudioContext();
-      if (typeof audioCtx.resume === "function") {
-        audioCtx.resume();
-      }
-    }
-    return audioCtx;
-  }
-
-  function playChokeSound() {
-    var ctx = getAudioContext();
-    var now = ctx.currentTime;
-
-    var osc = ctx.createOscillator();
-    var gain = ctx.createGain();
-    osc.type = "triangle";
-    osc.frequency.setValueAtTime(220, now);
-    osc.frequency.exponentialRampToValueAtTime(90, now + 0.18);
-    gain.gain.setValueAtTime(0.001, now);
-    gain.gain.exponentialRampToValueAtTime(0.16, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
-    osc.connect(gain).connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 0.4);
-
-    var noise = ctx.createBufferSource();
-    var buffer = ctx.createBuffer(1, ctx.sampleRate * 0.12, ctx.sampleRate);
-    var data = buffer.getChannelData(0);
-    for (var i = 0; i < data.length; i++) {
-      data[i] = (Math.random() * 2 - 1) * 0.35;
-    }
-    noise.buffer = buffer;
-    var noiseGain = ctx.createGain();
-    noiseGain.gain.setValueAtTime(0.001, now);
-    noiseGain.gain.exponentialRampToValueAtTime(0.08, now + 0.01);
-    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-    noise.connect(noiseGain).connect(ctx.destination);
-    noise.start(now);
-    noise.stop(now + 0.12);
-  }
-
-  function playDeathSound() {
-    var ctx = getAudioContext();
-    var now = ctx.currentTime;
-
-    var osc = ctx.createOscillator();
-    var gain = ctx.createGain();
-    osc.type = "sawtooth";
-    osc.frequency.setValueAtTime(150, now);
-    osc.frequency.exponentialRampToValueAtTime(38, now + 0.8);
-    gain.gain.setValueAtTime(0.001, now);
-    gain.gain.linearRampToValueAtTime(0.22, now + 0.04);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-    osc.connect(gain).connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 1.1);
-
-    var sub = ctx.createOscillator();
-    var subGain = ctx.createGain();
-    sub.type = "square";
-    sub.frequency.setValueAtTime(72, now);
-    subGain.gain.setValueAtTime(0.001, now);
-    subGain.gain.linearRampToValueAtTime(0.06, now + 0.05);
-    subGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-    sub.connect(subGain).connect(ctx.destination);
-    sub.start(now);
-    sub.stop(now + 1.1);
   }
 
   function normalizarNombre(raw, defecto) {
@@ -1156,6 +821,47 @@
       "</span></span>";
   }
 
+  function mostrarEfectoPapa(fila, columna) {
+    // Mostrar la papa en la casilla clicada
+    var cellSelector = 'td[data-row="' + fila + '"][data-col="' + columna + '"]';
+    var cell = document.querySelector(cellSelector);
+    if (cell) {
+      cell.textContent = "🥔";
+      cell.style.fontSize = "1.8rem";
+    }
+    
+    var modal = document.createElement("div");
+    modal.style.position = "fixed";
+    modal.style.top = "50%";
+    modal.style.left = "50%";
+    modal.style.transform = "translate(-50%, -50%)";
+    modal.style.fontSize = "180px";
+    modal.style.zIndex = "9999";
+    modal.style.pointerEvents = "none";
+    modal.style.animation = "fadeInOutPapa 0.8s ease-in-out";
+    modal.textContent = "🥔";
+    
+    var style = document.querySelector("style[data-papa]");
+    if (!style) {
+      style = document.createElement("style");
+      style.setAttribute("data-papa", "true");
+      style.textContent = `
+        @keyframes fadeInOutPapa {
+          0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+          20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+          80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+          100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(modal);
+    setTimeout(function() {
+      modal.remove();
+    }, 800);
+  }
+
   /**
    * @param {object} o
    * @param {boolean[][]} o.puntos
@@ -1211,17 +917,10 @@
             td.classList.add("is-poison");
           }
         } else if (modo === "play") {
-          if (puntos[i][j]) {
-            td.textContent = "🍟";
-          } else if (veneno[i][j]) {
-            td.textContent = "🥔";
-            td.classList.add("is-veneno-borrado");
-          } else {
-            td.textContent = "";
-            td.classList.add("is-empty-cell");
-          }
+          td.textContent = puntos[i][j] ? "🍟" : "";
           if (!puntos[i][j]) {
             td.classList.add("disabled");
+            td.classList.add("is-empty-cell");
             disabled = true;
           }
         } else {
@@ -1229,7 +928,7 @@
             td.textContent = veneno[i][j] ? "V" : "🍟";
             if (veneno[i][j]) td.classList.add("is-poison-final");
           } else {
-            td.textContent = veneno[i][j] ? "🥔" : "";
+            td.textContent = veneno[i][j] ? "x" : "";
             if (veneno[i][j]) {
               td.classList.add("is-veneno-borrado");
             } else {
@@ -1408,13 +1107,13 @@
         titulo: "Tablero de " + nombreJ1 + " — borra un punto",
         onCell: function (f, c) {
           if (!puntosJ1[f][c]) {
-            mensaje("Ahí ya no hay punto. Elige otra casilla con ●.");
+            mensaje("Ahí ya no hay punto. Elige otra casilla con 🍟.");
             return;
           }
           puntosJ1[f][c] = false;
           if (venenoJ1[f][c]) {
             vidasJ1--;
-            playChokeSound();
+            mostrarEfectoPapa(f, c);
             mensaje(
               "☠️ ¡Te envenenaste! Pierdes 1 vida. Te quedan " + vidasJ1 + "."
             );
@@ -1456,13 +1155,13 @@
         titulo: "Tablero de " + nombreJ2 + " — borra un punto",
         onCell: function (f, c) {
           if (!puntosJ2[f][c]) {
-            mensaje("Ahí ya no hay punto. Elige otra casilla con ●.");
+            mensaje("Ahí ya no hay punto. Elige otra casilla con 🍟.");
             return;
           }
           puntosJ2[f][c] = false;
           if (venenoJ2[f][c]) {
             vidasJ2--;
-            playChokeSound();
+            mostrarEfectoPapa(f, c);
             mensaje(
               "☠️ ¡Te envenenaste! Pierdes 1 vida. Te quedan " + vidasJ2 + "."
             );
@@ -1489,9 +1188,6 @@
   function finPartida() {
     elContainer.innerHTML = "";
     mensaje("");
-    if (vidasJ1 <= 0 || vidasJ2 <= 0) {
-      playDeathSound();
-    }
     if (vidasJ1 <= 0) {
       elFin.textContent =
         nombreJ1 + " se quedó sin vidas. ¡Gana " + nombreJ2 + "!";
