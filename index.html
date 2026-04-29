@@ -253,6 +253,14 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     }
 
+    table.tablero td.is-veneno-borrado {
+      background: linear-gradient(145deg, #fca5a5, #ef4444);
+      border-color: #b91c1c;
+      box-shadow: 0 4px 0 #991b1b;
+      color: #fff;
+      font-weight: 700;
+    }
+
     table.tablero td.is-empty-cell {
       background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
       border-color: #d1d5db;
@@ -917,10 +925,17 @@
             td.classList.add("is-poison");
           }
         } else if (modo === "play") {
-          td.textContent = puntos[i][j] ? "🍟" : "";
+          if (!puntos[i][j] && veneno[i][j]) {
+            td.textContent = "🥔";
+            td.classList.add("is-veneno-borrado");
+          } else {
+            td.textContent = puntos[i][j] ? "🍟" : "";
+          }
           if (!puntos[i][j]) {
             td.classList.add("disabled");
-            td.classList.add("is-empty-cell");
+            if (!veneno[i][j]) {
+              td.classList.add("is-empty-cell");
+            }
             disabled = true;
           }
         } else {
@@ -1250,10 +1265,10 @@
         td.classList.add("disabled");
         if (modo === "final") {
           if (puntos[i][j]) {
-            td.textContent = veneno[i][j] ? "V" : "🍟";
+            td.textContent = veneno[i][j] ? "🥔" : "🍟";
             if (veneno[i][j]) td.classList.add("is-poison-final");
           } else {
-            td.textContent = veneno[i][j] ? "x" : "";
+            td.textContent = veneno[i][j] ? "☠️" : "";
             if (veneno[i][j]) {
               td.classList.add("is-veneno-borrado");
             } else {
